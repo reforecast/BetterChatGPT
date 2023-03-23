@@ -157,6 +157,11 @@ If you'd like to run your own instance of Free ChatGPT, you can easily do so by 
 4. Run `yarn` or `npm install`, depending on whether you have yarn or npm installed.
 5. Launch the app by running `yarn dev` or `npm run dev`
 
+### Running it with Docker
+
+1. Follow step 1-4 in <u>Running it locally</u>
+2. Build the docker image by running `docker build -t FreeChatGPT .`
+3. Launch a docker container with command like `docker run -d --rm --name FreeChatGPT -p FreeChatGPT`
 ---
 
 <h3 align="center">
