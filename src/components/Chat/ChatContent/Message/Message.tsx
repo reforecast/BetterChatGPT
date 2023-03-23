@@ -31,7 +31,7 @@ const Message = React.memo(
           backgroundStyle[messageIndex % 2]
         }`}
       >
-        <div className='text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-4 md:py-6 flex lg:px-0'>
+        <div className='text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-6xl p-4 md:py-6 flex lg:px-0'>
           <Avatar role={role} />
           <div className='w-[calc(100%-50px)] '>
             <RoleSelector
