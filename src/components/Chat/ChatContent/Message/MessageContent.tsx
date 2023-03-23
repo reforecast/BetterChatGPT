@@ -43,7 +43,7 @@ const MessageContent = ({
   const [isEdit, setIsEdit] = useState<boolean>(sticky);
 
   return (
-    <div className='relative flex flex-col gap-1 md:gap-3 lg:w-[calc(100%-115px)]'>
+    <div className='relative flex flex-col gap-1 md:gap-3 lg:w-[calc(100%)]'>
       <div className='flex flex-grow flex-col gap-3'></div>
       {isEdit ? (
         <EditView
@@ -128,7 +128,7 @@ const ContentView = React.memo(
 
     return (
       <>
-        <div className='markdown prose w-full break-words dark:prose-invert dark share-gpt-message'>
+        <div className='markdown w-full break-words dark:prose-invert dark share-gpt-message'>
           <ReactMarkdown
             remarkPlugins={[
               remarkGfm,
