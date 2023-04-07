@@ -342,12 +342,29 @@ const EditView = ({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if ((e.ctrlKey || e.shiftKey) && e.key === 'Enter') {
-      e.preventDefault();
+    const isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|playbook|silk/i.test(
+        navigator.userAgent
+      );
+
+    if (e.key === 'Enter' && !isMobile && !e.nativeEvent.isComposing) {
+      const enterToSubmit = useStore.getState().enterToSubmit;
       if (sticky) {
-        handleSaveAndSubmit();
-        resetTextAreaHeight();
-      } else handleSave();
+        if (
+          (enterToSubmit && !e.shiftKey) ||
+          (!enterToSubmit && (e.ctrlKey || e.shiftKey))
+        ) {
+          e.preventDefault();
+          handleSaveAndSubmit();
+          resetTextAreaHeight();
+        }
+      } else {
+        if (e.ctrlKey && e.shiftKey) {
+          e.preventDefault();
+          handleSaveAndSubmit();
+          resetTextAreaHeight();
+        } else if (e.ctrlKey || e.shiftKey) handleSave();
+      }
     }
   };
 
@@ -417,11 +434,12 @@ const EditView = ({
       >
         <textarea
           ref={textareaRef}
-          className='m-0 resize-none rounded-lg bg-transparent overflow-y-hidden focus:ring-0 focus-visible:ring-0 leading-7 w-full'
+          className='m-0 resize-none rounded-lg bg-transparent overflow-y-hidden focus:ring-0 focus-visible:ring-0 leading-7 w-full placeholder:text-gray-500/40'
           onChange={(e) => {
             _setContent(e.target.value);
           }}
           value={_content}
+          placeholder={t('submitPlaceholder') as string}
           onKeyDown={handleKeyDown}
           rows={1}
         ></textarea>
