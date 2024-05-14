@@ -146,12 +146,12 @@ One click deploy with Vercel
 ### Running it with Docker
 
 1. Follow step 1-4 in <u>Running it locally</u>
-2. Build the docker image by running `docker build -t FreeChatGPT .`
-3. Launch a docker container with command like `docker run -d --rm --name FreeChatGPT -p FreeChatGPT`
+2. Build the docker image by running `docker build -t BetterChatGPT .`
+3. Launch a docker container with command like `docker run -d --rm --name BetterChatGPT -p 5137:80 BetterChatGPT`
 ---
 # ⭐️ Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=ztjhz/BetterChatGPT&type=Date)](https://github.com/ztjhz/BetterChatGPT/stargazers)
+[![Star History Chart](https://api.star-history.com/svg?repos=ztjhz/BetterChatGPT&type=Date)](https://github.com/ztjhz/BetterChatGPT/stargazers)f51
 
 <h3 align="center">
 A ⭐️ to <b>Better ChatGPT</b> is to make it shine brighter and benefit more people.
